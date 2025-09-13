@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio</title>
+  <meta name="description" content="Personal portfolio: About, Projects, Skills, Contact" />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9ca3af; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --max-width:1100px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071027 0%,var(--bg) 100%);color:#e6eef8}
+    .wrap{max-width:var(--max-width);margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin:0 8px;font-weight:600}
+    nav a:hover{color:#fff}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:22px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin-top:8px}
+
+    .cta{margin-top:16px;display:flex;gap:10px}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:white;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
+    .avatar{width:100%;max-width:360px;border-radius:12px;overflow:hidden}
+    .avatar img{display:block;width:100%;height:auto}
+
+    section{margin-top:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .project{display:flex;flex-direction:column;gap:10px}
+    .project img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{padding:8px 10px;background:var(--glass);border-radius:999px;color:var(--muted);font-weight:700}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);padding:16px}
+
+    .modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60}
+    .modal{background:#071528;padding:18px;border-radius:12px;max-width:720px;width:96%;border:1px solid rgba(255,255,255,0.04)}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.grid-3{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:600px){.grid-3,.grid-2{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+
+    .muted{color:var(--muted)}
+    .tag{font-size:12px;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">AR</div>
+        <div>
+          <div style="font-weight:800">JAVIDI ANOOP REDDY</div>
+          <div class="muted" style="font-size:13px">Frontend developer•Creator</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about" style= "text-align:center">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card">
+          <h1>Hi — I'm Javidi Anoop reddy</h1>
+          <p class="lead">I'm a  web developer focused on modern design and performance.I love turning ideas into interactive digital experiences</p>
+         
+          <div class="tag" style="display:inline-block;margin-top:12px">Open to work</div>
+
+          <div class="cta">
+            <button class="btn" onclick="openContact()">Hire me</button>
+            <a class="btn ghost" href="#projects">View projects</a>
+          </div>
+
+          <section id="about" style="margin-top:18px">
+            <h3>About</h3>
+            <p class="muted">I'm a developer focused on building human-centered web experiences. I often work with HTML, CSS and JavaScript projects. I enjoy learning and sharing.</p>
+          </section>
+        </div>
+
+        <aside class="profile">
+          <div class="card avatar">
+            <img src="anoopreddy15.png"/>
+          </div>
+          <div class="card" style="width:100%;text-align:center">
+            <div style="font-weight:800">Contact</div>
+            <div class="muted">anoopreddy382@gmail.com</div>
+            <div style="margin-top:10px">
+              <button class="btn" onclick="openContact()">Say hello</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" class="card">
+        <h3>Projects</h3>
+        <p class="muted">Selected work: click any project for details.</p>
+        <div class="grid-3" style="margin-top:12px">
+          <div class="project" tabindex="0" onclick="openProject(0)">
+            <img loading="lazy" src="project1.jpg" alt="proj 1">
+            <div style="font-weight:800">Project One</div>
+            <div class="muted">Safety vest and helmet</div>
+          </div>
+
+          <div class="project" tabindex="0" onclick="openProject(1)">
+            <img loading="lazy" src="project2.jpg" alt="proj 2">
+            <div style="font-weight:800">Project Two</div>
+            <div class="muted">Railscape maintainance robot</div>
+          </div>
+
+          <div class="project" tabindex="0" onclick="openProject(2)">
+            <img loading="lazy" src="project3.jpg" alt="proj 3">
+            <div style="font-weight:800">Project Three</div>
+            <div class="muted">Kishan-Mitra</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h3>Skills</h3>
+        <div class="skills" style="margin-top:5px">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">Python</div>
+          <div class="skill">c</div>
+          <div class="skill">Java</div>
+          <div class="skill">Git</div>
+          <div class="skill">Data analyst</div>
+          <div class="skill">Data structures</div>
+          <div class="skill">Database Management</div>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h3>Contact</h3>
+        <p class="muted">Want to collaborate? Drop a message.</p>
+        <form onsubmit="submitContact(event)" style="margin-top:12px;display:grid;gap:8px">
+          <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <input name="email" type="email" placeholder="you@example.com" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <textarea name="message" placeholder="What would you like to build?" rows="4" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+          <div style="display:flex;gap:10px">
+            <button class="btn" type="submit">Send</button>
+            <button type="button" class="btn ghost" onclick="savePDF()">Save as PDF</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="muted">© <span id="year"></span> Your Name — Built with ♥</footer>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" id="modalContent">
+      <button style="float:right;border:none;background:transparent;color:var(--muted);font-weight:800;cursor:pointer" onclick="closeModal()">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    
+    const projects = [
+      {title:'Project One',desc:'The smart safety vest tracks vitals, location, and gases via ESP32 with alerts on Blynk. The helmet uses ESP32-CAM and servos for live rotating surveillance.',img:'project1.jpg'},
+      {title:'Project Two',desc:'The Railscape Robot autonomously inspects tracks, detects faults/obstacles, and performs maintenance, sending real-time data for safer, efficient railway operation.',img:'project2.jpg'},
+      {title:'Project Three',desc:'The Krishi Mitra robot monitors soil moisture and pH, auto-controls irrigation/fertilizer, and sends real-time data via ESP32 for smart precision farming.',img:'project3.jpg'}
+    ];
+
+    function openProject(i){
+      const p = projects[i];
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `<h2 style="margin-top:6px">${p.title}</h2><p class=\"muted\">${p.desc}</p><img style=\"width:100%;border-radius:10px;margin-top:12px\" src=\"${p.img}\">`;
+      showModal();
+    }
+    function showModal(){
+      const m = document.getElementById('modalBackdrop');
+      m.style.display='flex';m.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){document.getElementById('modalBackdrop').style.display='none';document.getElementById('modalBackdrop').setAttribute('aria-hidden','true')}
+
+    function openLightbox(src){
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `<img style=\"width:100%;height:auto;border-radius:8px\" src=\"${src}\">`;
+      showModal();
+    }
+
+    function submitContact(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = {name:f.name.value,email:f.email.value,message:f.message.value,ts:new Date().toISOString()};
+      console.log('Contact form:',data);
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `<h3>Thanks, ${data.name}!</h3><p class=\"muted\">I received your message. I'll respond at ${data.email} </p>`;
+      showModal();
+      f.reset();
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function openContact(){ location.hash = '#contact'; window.scrollTo({top:document.getElementById('contact').offsetTop - 20,behavior:'smooth'}); }
+    function savePDF(){ window.print(); }
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+</body>
+</html>
